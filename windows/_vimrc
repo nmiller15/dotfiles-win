@@ -1,0 +1,16 @@
+set relativenumber
+
+let mapleader = "<Space>"
+
+" Show line numbers
+set number
+
+set visualbell
+set scrolloff=10
+
+" Remappings
+nnoremap <Leader>e :vsc View.SolutionExplorer<CR>
+noremap <Leader>sf :vsc Edit.GoToAll<CR>
+
+noremap grd :vsc Edit.GoToDefinition<CR>
+noremap gri :vsc Edit.GoToImplementation<CR>
