@@ -1,4 +1,3 @@
-#!/usr/bin/env zsh
 print "Setting up Homebrew..."
 
 # Homebrew (if installed) - Ensure it takes precedence

@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 print 'Setting up aliases...'
 
 alias ll='ls -lah'

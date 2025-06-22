@@ -1,4 +1,3 @@
-#!/usr/bin/env zsh
 print "Configuring PATH..."
 
 # Set PATH properly

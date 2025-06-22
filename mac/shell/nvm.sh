@@ -1,4 +1,3 @@
-#!/usr/bin/env zsh
 print "Setting up nvm..."
 
 export NVM_DIR="$HOME/.nvm"
