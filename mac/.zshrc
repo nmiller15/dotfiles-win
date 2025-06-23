@@ -5,8 +5,6 @@ HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
 
-echo "$0"
-
 # Profile options
 set -o vi # vim keybindings
 
