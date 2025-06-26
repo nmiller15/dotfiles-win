@@ -2,7 +2,7 @@
 
 DOTFILES="$HOME/Projects/dotfiles"
 
-start=$(date +%s)
+bootstrap_start=$(gdate +%s%3N)
 
 write_conf () {
     local dir=$1
@@ -40,9 +40,10 @@ for link in "${(@k)links}"; do
   echo "Linked: $link"
 done
 
-source "$HOME/.zshrc" bootstrap
+MODE=bootstrap source "$HOME/.zshrc"
 tmux source-file "$HOME/.tmux.conf"
 
-end=$(date +%s)
-elapsed=$((end - start))
-echo "Configurations bootstrapped in ${elapsed}ms"
+bootstrap_end=$(gdate +%s%3N)
+elapsed_ms=$(echo "$bootstrap_end - $bootstrap_start" | bc)
+elapsed_sec=$(echo "scale=3; $elapsed_ms / 1000" | bc)
+echo "Configurations bootstrapped in ${elapsed_sec}s"

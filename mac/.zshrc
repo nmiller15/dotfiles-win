@@ -9,14 +9,14 @@ HISTFILE=~/.zsh_history
 set -o vi # vim keybindings
 
 for FILE in $DOTFILES/mac/shell/*.sh; do
-    if [[ "$1" == "bootstrap" ]]; then
-        start=$(date +%s%3)
+    if [[ "$MODE" == "bootstrap" ]]; then
+        start=$(gdate +%s%3N)
     fi
     [ -r $FILE ] && source "$FILE"
-    if [[ "$1" == "bootstrap" ]]; then
-        end=$(date +%s%3)
-        elapsed=$(($end - $start))
-        echo "${FILE:t} sourced in ${elapsed}ms"
+    if [[ "$MODE" == "bootstrap" ]]; then
+        end=$(gdate +%s%3N)
+       elapsed_ms=$(echo "$end - $start" | bc)
+       echo "${FILE:t} sourced in ${elapsed_ms}ms"
     fi
 done
 
