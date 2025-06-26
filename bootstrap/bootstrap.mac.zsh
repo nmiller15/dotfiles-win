@@ -21,6 +21,7 @@ links=(
   "$HOME/.zprofile" "$DOTFILES/mac/.zprofile"
   "$HOME/.zshenv" "$DOTFILES/mac/.zshenv"
   "$HOME/.tmux.conf" "$DOTFILES/mac/.tmux.conf"
+  "$HOME/.config/nvim" "$DOTFILES/shared/nvim"
 )
 
 for link in "${(@k)links}"; do
