@@ -4,7 +4,10 @@ Get-ChildItem -Path $DOTFILES -Filter '*.ps1' | Sort-Object Name | ForEach-Objec
     $ps1_sw = [System.Diagnostics.Stopwatch]::StartNew()
     . $_.FullName
     $elapsed = "{0:N3}s" -f $ps1_sw.Elapsed.TotalSeconds
-    Write-Host "Sourced $_ in $elapsed"
+    
+    if ($env:BOOTSTRAP) {
+        Write-Host "Sourced $_ in $elapsed"
+    }
 }
 
 

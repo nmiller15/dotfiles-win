@@ -44,7 +44,10 @@ try {
 }
 
 Write-Host "Sourcing config files..."
+$env:BOOTSTRAP = "true";
 . $PROFILE
+
+Remove-Item Env:BOOTSTRAP
 
 $elapsed = "{0:N3}s" -f $sw.Elapsed.TotalSeconds
 Write-Host "Config bootstrapped in $elapsed"
