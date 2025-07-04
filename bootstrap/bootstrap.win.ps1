@@ -5,6 +5,9 @@ $links = @(
     @{ source = "$dotfiles\windows\PowerShell_profile.ps1"; link = $PROFILE },
     @{ source = "$dotfiles\windows\_vimrc"; link = "$HOME\_vimrc" }
     @{ source = "$dotfiles\shared\nvim"; link = "$HOME\AppData\Local\nvim" }
+    @{ source = "$dotfiles\windows\komorebi-bar.json"; link = "$HOME\komorebi-bar.json" }
+    @{ source = "$dotfiles\windows\komorebi.json"; link = "$HOME\komorebi.json" }
+    @{ source = "$dotfiles\windows\whkdrc"; link = "$HOME\.config\whkdrc" }
 )
 
 Write-Host "Linking config files..."
@@ -27,7 +30,7 @@ foreach ($entry in $links) {
 
     # Create the symlink
     if (Test-Path $source -PathType Container) {
-        robocopy $source $link /E
+        robocopy $source $link /E /NDL /NS /NJH /NJS /NC /R:3 /W:5
         Write-Host "Copied: $link"
     } else {
         New-Item -ItemType SymbolicLink -Path $link -Target $source -Force | Out-Null
@@ -46,6 +49,10 @@ try {
 Write-Host "Sourcing config files..."
 $env:BOOTSTRAP = "true";
 . $PROFILE
+
+Write-Host "Reloading services..."
+# komorebic stop --whkd --bar
+# komorebic start --whkd --bar
 
 Remove-Item Env:BOOTSTRAP
 

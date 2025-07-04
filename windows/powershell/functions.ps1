@@ -18,3 +18,7 @@ function install_if_missing {
 function twig {
     & "c:\Code\twig\bin\Debug\net9.0\twig.exe" @args
 }
+
+function pulse {
+    & "c:\Code\pulse\bin\Debug\net9.0\pulse.exe" @args
+}
