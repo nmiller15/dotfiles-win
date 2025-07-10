@@ -6,6 +6,7 @@ $links = @(
     @{ source = "$dotfiles\windows\_vimrc"; link = "$HOME\_vimrc" }
     @{ source = "$dotfiles\shared\nvim"; link = "$HOME\AppData\Local\nvim" }
     @{ source = "$dotfiles\windows\komorebi-bar.json"; link = "$HOME\komorebi-bar.json" }
+    @{ source = "$dotfiles\windows\komorebi.ahk"; link = "$HOME\OneDrive - CAB\Documents\AutoHotkey\komorebi.ahk" }
     @{ source = "$dotfiles\windows\komorebi.json"; link = "$HOME\komorebi.json" }
     @{ source = "$dotfiles\windows\whkdrc"; link = "$HOME\.config\whkdrc" }
 )
@@ -53,6 +54,9 @@ $env:BOOTSTRAP = "true";
 Write-Host "Reloading services..."
 # komorebic stop --whkd --bar
 # komorebic start --whkd --bar
+komorebic stop
+komorebic start
+& "$HOME\OneDrive - CAB\Documents\AutoHotkey\komorebi.ahk"
 
 Remove-Item Env:BOOTSTRAP
 

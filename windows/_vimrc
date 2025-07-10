@@ -21,3 +21,6 @@ nnoremap <Leader>gs :vsc Team.Git.GoToGitChanges<CR>
 nnoremap grd :vsc Edit.GoToDefinition<CR>
 nnoremap grr :vsc Edit.GoToReference<CR>
 nnoremap gri :vsc Edit.GoToImplementation<CR>
+
+nnoremap gcc :vsc Edit.ToggleLineComment<CR>
+vnoremap gc :vsc Edit.ToggleLineComment<CR>

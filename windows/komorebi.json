@@ -7,7 +7,7 @@
   "default_container_padding": 5,
   "border": true,
   "border_width": 2,
-  "border_offset": -2,
+  "border_offset": -1,
   "theme": {
     "palette": "Base16",
     "name": "Ashes",
