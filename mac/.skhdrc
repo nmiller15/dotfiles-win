@@ -130,7 +130,7 @@ default < alt + shift - r         : yabai --restart-service
 default < alt - return : open -F -n -a "iTerm"
 default < alt - s : open -F -n -a "Safari"
 default < alt + shift - m : open -F -n -a "Spotify"
-default < alt - o : open -n -a "Obsidian"
+default < alt - o : open -a "Obsidian"
 
 default < alt - m : yabai -m window --minimize
 default < alt - i ; off
@@ -164,4 +164,4 @@ lctrl + alt - k : yabai -m window --resize top:0:-50; \
                   yabai -m window --resize bottom:0:-50
 lctrl + alt - l : yabai -m window --resize right:50:0; \
                   yabai -m window --resize left:50:0
-# Conf written on Tue Jul  8 17:33:09 EDT 2025
+# Conf written on Wed Jul 23 21:30:38 EDT 2025

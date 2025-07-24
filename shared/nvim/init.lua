@@ -655,6 +655,26 @@ require('lazy').setup({
             },
           },
         },
+        tailwindcss = {
+          -- cmd = { ... }, -- You can override the command used to start the server
+          filetypes = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'vue', 'svelte' },
+          capabilities = vim.tbl_deep_extend('force', {}, capabilities, {
+            textDocument = {
+              completion = {
+                completionItem = {
+                  snippetSupport = true,
+                },
+              },
+            },
+          }),
+          settings = {
+            tailwindCSS = {
+              experimental = {
+                classRegex = { 'class="([^"]*)"', "class='([^']*)'", 'className="([^"]*)"', "className='([^']*)'" },
+              },
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = { ... },
@@ -752,7 +772,7 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
@@ -906,6 +926,19 @@ require('lazy').setup({
       vim.keymap.set('n', '<C-p>', function()
         dotnet.run_project()
       end)
+    end,
+  },
+  {
+    'prettier/vim-prettier',
+    build = 'npm install',
+    ft = { 'javascript', 'typescript', 'css', 'html', 'json', 'markdown', 'yaml' },
+    init = function()
+      -- Prettier settings
+      vim.g['prettier#autoformat'] = 1
+      vim.g['prettier#autoformat_require_pragma'] = 0
+      vim.g['prettier#autoformat_config_present'] = 1
+      vim.g['prettier#config#tab_width'] = 4
+      vim.g['prettier#config#use_tabs'] = false
     end,
   },
   { -- Github Copilot

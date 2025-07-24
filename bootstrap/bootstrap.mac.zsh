@@ -43,7 +43,7 @@ for link in "${(@k)links}"; do
   mkdir -p "$parent_dir"
 
   if [[ -d "$link" ]]; then;
-      rsync -a "$source" "$link"
+      rsync -a "$source/" "$link/"
       echo "Directory synced: $link"
   else 
       ln -sf "$source" "$link"
