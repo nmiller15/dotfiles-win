@@ -12,6 +12,7 @@ set scrolloff=10
 let g:highlightedyank_highlight_duration = 500
 
 " Remappings
+nnoremap <Leader>a :vsc Harpoon.AppendTab<CR>
 nnoremap <Leader>e :vsc View.SolutionExplorer<CR>
 nnoremap <Leader>sf :vsc Edit.GoToAll<CR>
 nnoremap <Leader>sl :vsc Debug.Locals<CR>
