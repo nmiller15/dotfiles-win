@@ -5,6 +5,7 @@ $links = @(
     @{ source = "$dotfiles\windows\PowerShell_profile.ps1"; link = $PROFILE },
     @{ source = "$dotfiles\windows\_vimrc"; link = "$HOME\_vimrc" }
     @{ source = "$dotfiles\shared\nvim"; link = "$HOME\AppData\Local\nvim" }
+    @{ source = "$dotfiles\windows\caps-remap.ahk"; link = "$HOME\OneDrive - CAB\Documents\AutoHotkey\caps-remap.ahk" }
     # @{ source = "$dotfiles\windows\komorebi-bar.json"; link = "$HOME\komorebi-bar.json" }
     # @{ source = "$dotfiles\windows\komorebi.ahk"; link = "$HOME\OneDrive - CAB\Documents\AutoHotkey\komorebi.ahk" }
     # @{ source = "$dotfiles\windows\komorebi.json"; link = "$HOME\komorebi.json" }
@@ -18,7 +19,7 @@ foreach ($entry in $links) {
     $backup = "$link.backup"
 
 
-    if (!(Test-Path $backup)) {
+    if ((Test-Path $link) -and -not (Test-Path $backup)) {
         Rename-Item -Path $link -NewName $backup -Force
         Write-Host "Backed up: $backup"
     } 
@@ -57,6 +58,7 @@ Write-Host "Reloading services..."
 # komorebic stop
 # komorebic start
 # & "$HOME\OneDrive - CAB\Documents\AutoHotkey\komorebi.ahk"
+& "$HOME\OneDrive - CAB\Documents\AutoHotkey\caps-remap.ahk"
 
 Remove-Item Env:BOOTSTRAP
 
