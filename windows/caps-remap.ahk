@@ -1,2 +1,2 @@
-#SingleInsance Force
+#SingleInstance Force
 Capslock::Esc
