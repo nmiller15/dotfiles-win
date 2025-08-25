@@ -42,7 +42,7 @@ foreach ($entry in $links) {
 
 Write-Host "Installing tools..."
 try {
-    & "$DOTFILES\windows\bin\tools.ps1"
+    & "$DOTFILES\windows\bin\install_tools.ps1"
     Write-Host "Tools installed successfully."
 } catch {
     Write-Host "Failed to install tools: $_"
