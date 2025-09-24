@@ -164,4 +164,4 @@ lctrl + alt - k : yabai -m window --resize top:0:-50; \
                   yabai -m window --resize bottom:0:-50
 lctrl + alt - l : yabai -m window --resize right:50:0; \
                   yabai -m window --resize left:50:0
-# Conf written on Tue Sep 23 07:40:20 EDT 2025
+# Conf written on Wed Sep 24 06:05:59 EDT 2025
