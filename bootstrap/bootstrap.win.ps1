@@ -62,6 +62,7 @@ Write-Host "Reloading services..."
 # komorebic start
 # & "$HOME\OneDrive - CAB\Documents\AutoHotkey\komorebi.ahk"
 & "$HOME\OneDrive - CAB\Documents\AutoHotkey\caps-remap.ahk"
+& "$HOME\OneDrive - CAB\Documents\AutoHotkey\add-to-things.ahk"
 
 Remove-Item Env:BOOTSTRAP
 

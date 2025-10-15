@@ -23,3 +23,5 @@ Set-Alias tldr "C:\Users\NMiller\AppData\Local\Packages\PythonSoftwareFoundation
 
 Remove-Item alias:curl -ErrorAction SilentlyContinue
 Set-Alias curl curl.exe
+
+Set-Alias add-to-things "C:\Code\dotfiles\shared\bin\add-to-things"
