@@ -7,6 +7,8 @@ $links = @(
     @{ source = "$dotfiles\shared\nvim"; link = "$HOME\AppData\Local\nvim" }
     @{ source = "$dotfiles\windows\caps-remap.ahk"; link = "$HOME\OneDrive - CAB\Documents\AutoHotkey\caps-remap.ahk" }
     @{ source = "$dotfiles\windows\caps-remap.ahk"; link = "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\caps-remap.ahk" }
+    @{ source = "$dotfiles\windows\add-to-things.ahk"; link = "$HOME\OneDrive - CAB\Documents\AutoHotkey\add-to-things.ahk" }
+    @{ source = "$dotfiles\windows\add-to-things.ahk"; link = "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\add-to-things.ahk" }
     # @{ source = "$dotfiles\windows\komorebi-bar.json"; link = "$HOME\komorebi-bar.json" }
     # @{ source = "$dotfiles\windows\komorebi.ahk"; link = "$HOME\OneDrive - CAB\Documents\AutoHotkey\komorebi.ahk" }
     # @{ source = "$dotfiles\windows\komorebi.json"; link = "$HOME\komorebi.json" }
