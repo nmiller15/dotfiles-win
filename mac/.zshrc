@@ -8,28 +8,22 @@ HISTFILE=~/.zsh_history
 # Profile options
 set -o vi # vim keybindings
 
-for FILE in $DOTFILES/mac/zsh/*.sh; do
-    if [[ "$MODE" == "bootstrap" ]]; then
-        start=$(gdate +%s%3N)
-    fi
-    [ -r $FILE ] && source "$FILE"
-    if [[ "$MODE" == "bootstrap" ]]; then
-        end=$(gdate +%s%3N)
-       elapsed_ms=$(echo "$end - $start" | bc)
-       echo "${FILE:t} sourced in ${elapsed_ms}ms"
-    fi
-done
+for DIR in "$DOTFILES/mac/zsh/" "$DOTFILES/shared/zsh/"; do
+    for FILE in "$DIR"/*.sh; do
+        [ -r "$FILE" ] || continue
 
-for FILE in $DOTFILES/shared/zsh/*.sh; do
-    if [[ "$MODE" == "bootstrap" ]]; then
-        start=$(gdate +%s%3N)
-    fi
-    [ -r $FILE ] && source "$FILE"
-    if [[ "$MODE" == "bootstrap" ]]; then
-        end=$(gdate +%s%3N)
-       elapsed_ms=$(echo "$end - $start" | bc)
-       echo "${FILE:t} sourced in ${elapsed_ms}ms"
-    fi
+        if [[ "$MODE" == "bootstrap" ]]; then
+            start=$(gdate +%s%3N)
+        fi
+
+        source "$FILE"
+
+        if [[ "$MODE" == "bootstrap" ]]; then
+            end=$(gdate +%s%3N)
+           elapsed_ms=$(echo "$end - $start" | bc)
+           echo "${FILE:t} sourced in ${elapsed_ms}ms"
+        fi
+    done
 done
 
 fpath+=($HOME/Projects/dotfiles/mac/bin)
