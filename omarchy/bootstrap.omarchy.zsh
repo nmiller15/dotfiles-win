@@ -3,7 +3,7 @@
 DOTFILES="$HOME/Projects/dotfiles"
 . "$DOTFILES/omarchy/zsh/functions.sh"
 
-bootstrap_start=$(gdate +%s%3N)
+bootstrap_start=$(date +%s%3N)
 
 write_conf () {
     local dir=$1
@@ -11,18 +11,30 @@ write_conf () {
 
     echo "Writing $out"
     cat $dir/* > "$out"
-    echo "# Conf written on $(gdate)" >> "$out"
+    echo "# Conf written on $(date)" >> "$out"
 }
 
 write_conf "$DOTFILES/shared/tmux" "$DOTFILES/shared/.tmux.conf"
 
 typeset -A links
 links=(
-  "$DOTFILES/omarchy/.zshrc" "$HOME/.zshrc"
-  "$DOTFILES/omarchy/.zprofile" "$HOME/.zprofile"
-  "$DOTFILES/omarchy/.zshenv" "$HOME/.zshenv"
-  "$DOTFILES/shared/.tmux.conf" "$HOME/.tmux.conf"
-  "$DOTFILES/shared/nvim" "$HOME/.config"
+  "$DOTFILES/omarchy/.zshrc"                    "$HOME/.zshrc"
+  "$DOTFILES/omarchy/.zprofile"                 "$HOME/.zprofile"
+  "$DOTFILES/omarchy/.zshenv"                   "$HOME/.zshenv"
+  "$DOTFILES/omarchy/.bashrc"                   "$HOME/.bashrc" # steal what you want from here
+  "$DOTFILES/omarchy/hypr/bindings.conf"        "$HOME/.config/hypr/bindings.conf"
+  "$DOTFILES/omarchy/hypr/hyprland.conf"        "$HOME/.config/hypr/hyprland.conf"
+  "$DOTFILES/omarchy/hypr/monitors.conf"        "$HOME/.config/hypr/monitors.conf"
+  "$DOTFILES/omarchy/hypr/input.conf"           "$HOME/.config/hypr/input.conf"
+  # "$DOTFILES/omarchy/hypr/hypridle.conf"        "$HOME/.config/hypr/hypridle.conf" # "Shouldn't need touching"
+  # "$DOTFILES/omarchy/hypr/hyprlock.conf"        "$HOME/.config/hypr/hyprlock.conf" # "symlinked already to the theme"
+  "$DOTFILES/omarchy/waybar/config.jsonc"       "$HOME/.config/waybar/config.jsonc"
+  # "$DOTFILES/omarchy/waybar/style.css"          "$HOME/.config/waybar/style.css"   # "symlinked already to the theme"
+  "$DOTFILES/omarchy/walker/config.toml"        "$HOME/.config/walker/config.toml"
+  "$DOTFILES/shared/starship.toml"              "$HOME/.config/starship.toml"
+  "$DOTFILES/shared/alacritty.toml"             "$HOME/.config/alacritty/alacritty.toml"
+  "$DOTFILES/shared/.tmux.conf"                 "$HOME/.tmux.conf"
+  "$DOTFILES/shared/nvim"                       "$HOME/.config"
 )
 
 for source in "${(@k)links}"; do
@@ -59,7 +71,6 @@ tmux source-file "$HOME/.tmux.conf"
 
 echo "Restarting services..."
 
-bootstrap_end=$(gdate +%s%3N)
-elapsed_ms=$(echo "$bootstrap_end - $bootstrap_start" | bc)
-elapsed_sec=$(echo "scale=3; $elapsed_ms / 1000" | bc)
-echo "Configurations bootstrapped in ${elapsed_sec}s"
+bootstrap_end=$(date +%s%3N)
+elapsed_sec=$((bootstrap_end - bootstrap_start))   # integer ms
+echo "Configurations bootstrapped in $((elapsed_ms / 1000.0))s"
