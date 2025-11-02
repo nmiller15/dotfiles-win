@@ -1,3 +1,4 @@
+alias mac_path='~/Projects/dotfiles/mac/zsh/path.sh'
 # print "Configuring PATH..."
 
 # Set PATH properly

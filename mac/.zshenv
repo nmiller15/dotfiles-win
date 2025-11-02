@@ -1,7 +1,6 @@
 # uv
 export PATH="/Users/nolanmiller/.local/bin:$PATH"
-# [[ $fpath = *dotfiles/mac/lib* ]] || fpath=(~/Projects/dotfiles/mac/lib $fpath)
-# autoload ${fpath[1]}/*(:t)
+export PATH="$HOME/Projects/dotfiles/mac/bin:$PATH"
 
 function yabai_launch() {
     echo "yabai_launch"

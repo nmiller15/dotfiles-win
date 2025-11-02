@@ -1,3 +1,4 @@
+alias mac_brew='~/Projects/dotfiles/mac/zsh/brew.sh'
 # print "Setting up Homebrew..."
 
 # Homebrew (if installed) - Ensure it takes precedence

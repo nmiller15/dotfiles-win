@@ -1,3 +1,4 @@
+alias shared_prompt='echo ~/Projects/dotfiles/shared/zsh/prompt.sh'
 # print "Customizing ZSH prompt..."
 
 setopt prompt_subst

@@ -1,3 +1,5 @@
+alias omarchy_functions='echo ~/Projects/dotfiles/omarchy/zsh/path.sh'
+
 install_if_missing() {
     local cmd="$1"
     local install_cmd="$2"

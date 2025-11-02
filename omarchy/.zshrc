@@ -8,31 +8,31 @@ HISTFILE=~/.zsh_history
 # Profile options
 set -o vi # vim keybindings
 
-for FILE in $DOTFILES/mac/zsh/*.sh; do
+for FILE in "$DOTFILES/omarchy/zsh/"*.sh; do
     if [[ "$MODE" == "bootstrap" ]]; then
-        start=$(gdate +%s%3N)
+        start=$(date +%s%3N)
     fi
-    [ -r $FILE ] && source "$FILE"
+    [ -r "$FILE" ] && source "$FILE"
     if [[ "$MODE" == "bootstrap" ]]; then
-        end=$(gdate +%s%3N)
-       elapsed_ms=$(echo "$end - $start" | bc)
-       echo "${FILE:t} sourced in ${elapsed_ms}ms"
-    fi
-done
-
-for FILE in $DOTFILES/shared/zsh/*.sh; do
-    if [[ "$MODE" == "bootstrap" ]]; then
-        start=$(gdate +%s%3N)
-    fi
-    [ -r $FILE ] && source "$FILE"
-    if [[ "$MODE" == "bootstrap" ]]; then
-        end=$(gdate +%s%3N)
-       elapsed_ms=$(echo "$end - $start" | bc)
-       echo "${FILE:t} sourced in ${elapsed_ms}ms"
+        end=$(date +%s%3N)
+        elapsed_ms=$((end - start))
+        echo "$(basename "$FILE") sourced in ${elapsed_ms}ms"
     fi
 done
 
-fpath+=($HOME/Projects/dotfiles/mac/bin)
+for FILE in "$DOTFILES/shared/zsh/"*.sh; do
+    if [[ "$MODE" == "bootstrap" ]]; then
+        start=$(date +%s%3N)
+    fi
+    [ -r "$FILE" ] && source "$FILE"
+    if [[ "$MODE" == "bootstrap" ]]; then
+        end=$(date +%s%3N)
+        elapsed_ms=$((end - start))
+        echo "$(basename "$FILE") sourced in ${elapsed_ms}ms"
+    fi
+done
+
+fpath+=($HOME/Projects/dotfiles/omarchy/bin)
 
 # Removed because it takes too long to load
 # export NVM_DIR="$HOME/.nvm"

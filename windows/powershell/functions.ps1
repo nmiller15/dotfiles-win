@@ -1,5 +1,5 @@
 # Reload Config
-function reload { . "$env:DOTFILES\bootstrap\bootstrap.win.ps1" }
+function reload { . "$env:DOTFILES\windows\bootstrap.win.ps1" }
 
 function install_if_missing {
     param (
