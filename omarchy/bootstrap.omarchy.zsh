@@ -18,14 +18,15 @@ write_conf "$DOTFILES/shared/tmux" "$DOTFILES/shared/.tmux.conf"
 
 typeset -A links
 links=(
-  "$DOTFILES/omarchy/.zshrc"                    "$HOME/.zshrc"
-  "$DOTFILES/omarchy/.zprofile"                 "$HOME/.zprofile"
-  "$DOTFILES/omarchy/.zshenv"                   "$HOME/.zshenv"
+  # "$DOTFILES/omarchy/.zshrc"                    "$HOME/.zshrc" # try the defaults first
+  # "$DOTFILES/omarchy/.zprofile"                 "$HOME/.zprofile"
+  # "$DOTFILES/omarchy/.zshenv"                   "$HOME/.zshenv"
   "$DOTFILES/omarchy/.bashrc"                   "$HOME/.bashrc" # steal what you want from here
-  "$DOTFILES/omarchy/hypr/bindings.conf"        "$HOME/.config/hypr/bindings.conf"
-  "$DOTFILES/omarchy/hypr/hyprland.conf"        "$HOME/.config/hypr/hyprland.conf"
-  "$DOTFILES/omarchy/hypr/monitors.conf"        "$HOME/.config/hypr/monitors.conf"
-  "$DOTFILES/omarchy/hypr/input.conf"           "$HOME/.config/hypr/input.conf"
+  "$DOTFILES/omarchy/hypr"                      "$HOME/.config" # take all files wholesale
+  # "$DOTFILES/omarchy/hypr/bindings.conf"        "$HOME/.config/hypr/bindings.conf"
+  # "$DOTFILES/omarchy/hypr/hyprland.conf"        "$HOME/.config/hypr/hyprland.conf"
+  # "$DOTFILES/omarchy/hypr/monitors.conf"        "$HOME/.config/hypr/monitors.conf"
+  # "$DOTFILES/omarchy/hypr/input.conf"           "$HOME/.config/hypr/input.conf"
   # "$DOTFILES/omarchy/hypr/hypridle.conf"        "$HOME/.config/hypr/hypridle.conf" # "Shouldn't need touching"
   # "$DOTFILES/omarchy/hypr/hyprlock.conf"        "$HOME/.config/hypr/hyprlock.conf" # "symlinked already to the theme"
   "$DOTFILES/omarchy/waybar/config.jsonc"       "$HOME/.config/waybar/config.jsonc"
@@ -33,8 +34,8 @@ links=(
   "$DOTFILES/omarchy/walker/config.toml"        "$HOME/.config/walker/config.toml"
   "$DOTFILES/shared/starship.toml"              "$HOME/.config/starship.toml"
   "$DOTFILES/shared/alacritty.toml"             "$HOME/.config/alacritty/alacritty.toml"
-  "$DOTFILES/shared/.tmux.conf"                 "$HOME/.tmux.conf"
-  "$DOTFILES/shared/nvim"                       "$HOME/.config"
+  # "$DOTFILES/shared/.tmux.conf"                 "$HOME/.tmux.conf"
+  # "$DOTFILES/shared/nvim"                       "$HOME/.config"
 )
 
 for source in "${(@k)links}"; do
