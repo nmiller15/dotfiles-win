@@ -926,7 +926,7 @@ require('lazy').setup({
             score_offset = 2000,
             async = true,
           },
-          lsp = { score_offset = 1000, enable_snippets = false },
+          lsp = { score_offset = 1000 },
           path = { score_offset = 300 },
           lazydev = { score_offset = 200, module = 'lazydev.integrations.blink' },
           snippets = { score_offset = 100 },
