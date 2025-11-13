@@ -10,6 +10,6 @@
     ; if desc.Result = "Cancel"
     ;     return
 
-    RunFormat := Format('py C:\Code\dotfiles\shared\bin\add-to-things "{}"', todo.Value)
+    RunFormat := Format('py C:\Code\dotfiles\bin\add-to-things "{}"', todo.Value)
     Run(RunFormat)
 }
