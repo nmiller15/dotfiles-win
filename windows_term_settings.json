@@ -67,10 +67,6 @@
             "keys": "ctrl+shift+f"
         },
         {
-            "id": "User.paste",
-            "keys": "ctrl+v"
-        },
-        {
             "id": "Terminal.ResizePaneDown",
             "keys": "alt+shift+j"
         },
@@ -113,6 +109,10 @@
         {
             "id": null,
             "keys": "alt+shift+plus"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+alt+v"
         }
     ],
     "newTabMenu": 
@@ -131,9 +131,13 @@
             "cursorShape": "filledBox",
             "font": 
             {
-                "builtinGlyphs": false,
+                "builtinGlyphs": true,
                 "cellHeight": "1.4",
-                "face": "MesloLGSDZ Nerd Font Mono",
+                "face": "Cascadia Code",
+                "features": 
+                {
+                    "rtla": 0
+                },
                 "size": 10,
                 "weight": "normal"
             },
@@ -146,7 +150,7 @@
                 {
                     "light": "IBM 5153"
                 },
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
                 "cursorShape": "filledBox",
                 "elevate": true,
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -237,6 +241,24 @@
                 "hidden": false,
                 "name": "Developer PowerShell for VS 18 [Preview]",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{1ce14370-1e4a-5c3a-b17b-857c7874982e}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{eb79787b-c377-524c-b564-ac6d83715390}",
+                "hidden": true,
+                "name": "Developer PowerShell for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
             }
         ]
     },

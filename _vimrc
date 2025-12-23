@@ -1,12 +1,19 @@
-set relativenumber
 
 let mapleader = "<Space>"
 
 " Show line numbers
 set number
+set relativenumber
 
 set visualbell
 set scrolloff=10
+
+set hlsearch
+highlight Search ctermfg=white ctermbg=DarkBlue guifg=white guibg=#444488
+set incsearch
+set inccommand
+
+nnoremap <Esc> :nohlsearch<CR>
 
 " Highlight yanked text
 let g:highlightedyank_highlight_duration = 500
@@ -25,6 +32,8 @@ nnoremap <Leader>gu :vsc View.Github.Copilot.Chat<CR>
 xnoremap <Leader>p "_dP
 
 nnoremap grd :vsc Edit.GoToDefinition<CR>
+nnoremap grr :vsc Edit.FindAllReferences<CR>
+nnoremap gra :vsc EditorContextMenus.CodeWindow.QuickActionsForPosition<CR>
 nnoremap gri :vsc Edit.GoToImplementation<CR>
 
 nnoremap gcc :vsc Edit.ToggleLineComment<CR>

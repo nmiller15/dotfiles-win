@@ -6,10 +6,6 @@
     if todo.Result = "Cancel"
         return
 
-    ; desc := InputBox("", "Description")
-    ; if desc.Result = "Cancel"
-    ;     return
-
-    RunFormat := Format('py C:\Code\dotfiles\bin\add-to-things "{}"', todo.Value)
-    Run(RunFormat)
+    RunFormat := Format('pwsh.exe -File "C:\Code\dotfiles\bin\AddToThings.ps1" "{}"', todo.Value)
+    Run(RunFormat, ,"Hide")
 }

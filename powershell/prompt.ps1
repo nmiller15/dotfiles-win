@@ -3,16 +3,17 @@ function prompt {
     if (Test-Path .git) {
         $branch = git rev-parse --abbrev-ref HEAD 2>$null
         if ($branch) {
-            $git = " (git:$branch)"
+            $git = " (git: $branch)"
         }
     }
 
-    Write-Host "$env:USERNAME@$env:COMPUTERNAME " -ForegroundColor Red -NoNewline   # amber/orange accent
-    Write-Host "$PWD" -ForegroundColor DarkYellow -NoNewline                              # warm beige
+    Write-Host "$env:USERNAME@$env:COMPUTERNAME " -ForegroundColor DarkMagenta -NoNewline   # purple accent
+    Write-Host "$PWD" -ForegroundColor DarkGray -NoNewline                                   # muted gray
     if ($git) {
-        Write-Host $git -ForegroundColor Yellow -NoNewline                                   # brownish tone
+        Write-Host $git -ForegroundColor Green -NoNewline                               # softer warm tone
     }
+
     Write-Host ""
-    Write-Host "&" -ForegroundColor DarkGray -NoNewline                                    # neutral low-contrast
+    Write-Host "&" -ForegroundColor DarkGray -NoNewline
     return " "
 }

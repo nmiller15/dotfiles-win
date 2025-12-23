@@ -729,6 +729,13 @@ require('lazy').setup({
       }
     end,
   },
+  {
+    'TheLeoP/powershell.nvim',
+    --- @type powershell.user_config
+    opts = {
+      bundle_path = 'C:/Users/NMiller/AppData/Local/nvim-data/mason/packages/powershell-editor-services',
+    },
+  },
   { -- Autoformat
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
@@ -968,7 +975,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'retrobox'
+      vim.cmd.colorscheme 'tokyonight-storm'
     end,
   },
 
