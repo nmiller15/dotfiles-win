@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import textwrap
 import argparse
 from dataclasses import dataclass
@@ -239,11 +240,24 @@ def output(s: str):
 
 
 def print_code(code: HttpCode, include_description: bool = False):
-    indent = 4
     output(f'{code.code} {code.name}')
     if include_description:
         output(code.description)
         print()
+
+
+def print_single_code(num: int, include_description: bool):
+    if (not 00 <= num <= 599):
+        print('enter a three-digit HTTP status code', file=sys.stderr)
+        exit(65)
+
+    code = next((c for c in HTTP_CODES if c.code == str(num)), None)
+    if not code:
+        print(f'"{str(num)}" is not a valid HTTP status code.', file=sys.stderr)
+        exit(1)
+
+    print()
+    print_code(code, include_description)
 
 
 def filter_codes(codes: list[HttpCode], filters):
@@ -323,7 +337,14 @@ def to_filters(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        "httpcodes", description="a helpful list of HTTP status codes")
+        "httpstatus", description="a helpful list of HTTP status codes")
+
+    parser.add_argument(
+        "code",
+        nargs="?",
+        type=int,
+        help="HTTP status code (e.g. 404)"
+    )
 
     parser.add_argument("-a", "--all", action="store_true",
                         help="show all HTTP status codes")
@@ -343,6 +364,10 @@ def main():
                         help="5xx - codes indicating server erorr")
 
     args = parser.parse_args()
+    if (args.code):
+        print_single_code(args.code, True)
+        exit(0)
+
     filters = to_filters(args)
 
     print_codes(filters, args.verbose)
