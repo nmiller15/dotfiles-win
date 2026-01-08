@@ -10,5 +10,7 @@ $env:PATH = "$env:PATH;C:\Program Files\Hugo"
 $env:PATH = "$env:PATH;C:\Program Files\Go\bin"
 $env:PATH = "$env:PATH;C:\Program Files\CMake\bin"
 $env:PATH = "$env:PATH;C:\Program Files\dotnet\packs\Microsoft.NET.Runtime.Emscripten.3.1.56.Sdk.win-x64\9.0.10\tools\bin"
+$env:PATH = "$env:PATH;C:\Program Files\dotnet\packs\Microsoft.NET.Runtime.Emscripten.3.1.56.Sdk.win-x64\9.0.10\tools\bin"
+$env:PATH = "$env:PATH;C:\Program Files\LLVM\bin"
 
 # $env:PATH = "$env:PATH;C:\Users\NMiller\bin"
